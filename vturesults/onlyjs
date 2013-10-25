@@ -1,0 +1,128 @@
+<script>
+ 
+ $(document).ready(function() {
+ 
+ jQuery.validator.addMethod("val_address", function(value, element) {
+    //return  (value == '<?php echo $zillow_option['zillowaddress']; ?>');
+    if(value == '<?php echo $zillow_option['zillowaddress']; ?>'){
+	return false;	
+    }
+}, "Address must be set to a value other than default...");
+ 
+ jQuery.validator.addMethod("val_city", function(value, element) {
+    //return (value == '<?php echo $zillow_option['zillowcity']; ?>');
+    if(value == '<?php echo $zillow_option['zillowcity']; ?>'){
+	return false;	
+    }
+}, "City must be set to a value other than default...");
+
+
+jQuery.validator.addMethod("val_zip", function(value, element) {
+    //return (value == '<?php echo $zillow_option['zillowzip']; ?>');
+    
+    if(value == '<?php echo $zillow_option['zillowzip']; ?>'){
+	return false;	
+    }else if (!value.match(/[0-9]+/))
+	return false;
+    }
+}, "Zip must be set to a value other than default...");
+
+jQuery.validator.addMethod("val_state", function(value, element) {
+    //return (value == '<?php echo $zillow_option['zillowstate']; ?>');
+    if(value == '<?php echo $zillow_option['zillowstate']; ?>'){
+	return false;	
+    }
+}, "State must be set to a value other than default...");
+     
+     
+    
+    var ruleSetaddress = {
+        val_address : true,
+        required: true
+        
+    };
+    
+    var ruleSetcity = {
+        val_city : true,
+        required: true
+        
+    };
+    
+    var ruleSetstate = {
+        val_state : true,
+        required: true
+        
+    };
+    
+    var ruleSetzip = {
+        val_zip : true,
+        required: true
+        
+    };
+     
+    $("#advanced-searchform").validate({
+	rules: {        	        		
+	search_address: ruleSetaddress,
+        search_city: ruleSetcity,
+        search_state: ruleSetstate,
+        search_zip: ruleSetzip	 
+                        
+			 	
+    	},  
+	    errorClass: "erroradvsearchform", //Defines error class as 'error'
+            errorElement: "div",
+	    messages: {
+    		search_address: " Enter Address",
+    		search_city: " Enter City",
+    		search_state: " Enter State",
+    		search_zip: " Enter Zip",
+    		 
+	    }
+	});
+        
+        
+     $("#searchform").validate({
+		rules: {        	        		
+		search_address: ruleSetaddress,
+        search_city: ruleSetcity,
+        search_state: ruleSetstate,
+        search_zip: ruleSetzip	 
+                        
+			 	
+    	},  
+	    errorClass: "errorsearchform", //Defines error class as 'error'
+            errorElement: "div",
+	    messages: {
+    		search_address: " Enter Address",
+    		search_city: " Enter City",
+    		search_state: " Enter State",
+    		search_zip: " Enter Zip",
+    		 
+	    }
+	});
+	 
+});
+
+</script>
+
+
+Table insertion script--
+
+function zillowInsertData($zillowid, $date_val, $postid, $url) {
+	global $wpdb;
+	$table_name = $wpdb->base_prefix."Zillow";
+        if(trim($date_val) == '')
+            $date_val= string2DateTime("0000-00-00");
+        $sql = "INSERT INTO $table_name (ZillowID, PostID, PropertyURL, DateUpdated) VALUES ($zillowid, $postid, $url,$date_val)";
+        echo "Insert query=" . $sql;
+        echo $wpdb->print_error();
+	return $wpdb->query($sql)===1;
+}
+
+/* Function: String -> DateTime
+ * Input: $datetime String
+ * Output: DateTime
+ */
+function string2DateTime($datetime) {
+	return strtotime($datetime);
+}

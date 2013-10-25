@@ -1,0 +1,119 @@
+<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js?ver=1.8.1'></script>
+<script type='text/javascript' src='http://dimitri.clientdemos.pw/wp-content/themes/Freehold-child/lib/js/jquery.validate.js?ver=3.5.1'></script>
+<script>
+
+ $(document).ready(function() {
+
+/*
+   jQuery.validator.addMethod(
+            'defaultCheck', function (value, element) {
+                if (element.value == element.defaultValue) {
+                    return false;
+                }
+                return true;
+  });*/
+
+ jQuery.validator.addMethod("val_address", function(value, element) {
+	if(value == 'Address only here...'){
+		return false;
+	}
+    //return  (value == 'Address only here...');
+}, "Address must be set to a value other than default...");
+
+ jQuery.validator.addMethod("val_city", function(value, element) {
+	if(value == 'City only here...'){
+		return false;
+	}
+    //return (value == 'City only here...');
+
+}, "City must be set to a value other than default...");
+
+
+jQuery.validator.addMethod("val_zip", function(value, element) {
+    if(value == 'Zip only here...'){
+	return false;
+    }else if (!value.match(/[0-9]+/)){
+	return false;
+    }
+
+}, "Zip must be set to a value other than default...");
+
+jQuery.validator.addMethod("val_state", function(value, element) {
+	if(value == 'State only here...'){
+		return false;
+	}
+    //return (value == 'State only here...');
+}, "State must be set to a value other than default...");
+
+
+
+    var ruleSetaddress = {
+        val_address : true,
+        required: true
+
+    };
+
+    var ruleSetcity = {
+        val_city : true,
+        required: true
+
+    };
+
+    var ruleSetstate = {
+        val_state : true,
+        required: true
+
+    };
+
+    var ruleSetzip = {
+        val_zip : true,
+        required: true
+
+    };
+
+    $("#advanced-searchform").validate({
+	rules: {
+	search_address: ruleSetaddress,
+        search_city: ruleSetcity,
+        search_state: ruleSetstate,
+        search_zip: ruleSetzip
+
+
+    	},
+	    errorClass: "erroradvsearchform", //Defines error class as 'error'
+            errorElement: "div",
+	    messages: {
+    		search_address: " Enter Address",
+    		search_city: " Enter City",
+    		search_state: " Enter State",
+    		search_zip: " Enter Zip",
+
+	    }
+	});
+
+
+     $("#searchform").validate({
+		rules: {
+		search_address: ruleSetaddress,
+        search_city: ruleSetcity,
+        search_state: ruleSetstate,
+        search_zip: ruleSetzip
+
+
+    	},
+	    errorClass: "errorsearchform", //Defines error class as 'error'
+            errorElement: "div",
+	    messages: {
+    		search_address: " Enter Address",
+    		search_city: " Enter City",
+    		search_state: " Enter State",
+    		search_zip: " Enter Zip",
+
+	    }
+	});
+	$(".errorsearchform").show();
+});
+
+</script>
+
+

